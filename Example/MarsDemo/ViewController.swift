@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  MarsDemo
+//
+//  Created by DouDou on 2023/3/22.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+
