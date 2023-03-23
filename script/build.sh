@@ -19,26 +19,26 @@ cd $MARS_SOURCE_DIR/mars
 
 OUT_DIR=$MARS_SOURCE_DIR/mars/cmake_build/iOS/iOS.out
 
-POD_DIR=$CUR_DIR/Mars
+POD_DIR=$CUR_DIR/Mars/Frameworks
 
-mkdir -p $POD_DIR/Frameworks/Xlog
+mkdir -p $POD_DI/Xlog
 
-if [[ ! -d "$POD_DIR/Frameworks/Xlog/mars.framework" ]]; then
+if [[ ! -d "$POD_DIR/Xlog/mars.framework" ]]; then
     echo "编译 Mars Xlog ...."
     python -c 'import build_ios; print build_ios.build_ios_xlog()'
-    cp -rf $OUT_DIR/mars.framework $POD_DIR/Frameworks/Xlog
+    cp -rf $OUT_DIR/mars.framework $POD_DIR/Xlog
 fi
 
-if [[ ! -d "$POD_DIR/Frameworks/mars.framework" ]]; then
+if [[ ! -d "$POD_DIR/mars.framework" ]]; then
     echo "编译 Mars 完整版 ...."
     python -c 'import build_ios; print build_ios.build_ios()'
-    cp -rf $OUT_DIR/mars.framework $POD_DIR/Frameworks
+    cp -rf $OUT_DIR/mars.framework $POD_DIR
     HEADER_DIR=$MARS_SOURCE_DIR/mars/libraries/mars_android_sdk/jni
-    cp -rf $HEADER_DIR/longlink_packer.cc $POD_DIR/Frameworks
-    cp -rf $HEADER_DIR/longlink_packer.h $POD_DIR/Frameworks
-    cp -rf $HEADER_DIR/stnproto_logic.h $POD_DIR/Frameworks
-    cp -rf $HEADER_DIR/shortlink_packer.cc $POD_DIR/Frameworks
-    cp -rf $HEADER_DIR/shortlink_packer.h $POD_DIR/Frameworks
+    cp -rf $HEADER_DIR/longlink_packer.cc $POD_DIR
+    cp -rf $HEADER_DIR/longlink_packer.h $POD_DIR
+    cp -rf $HEADER_DIR/stnproto_logic.h $POD_DIR
+    cp -rf $HEADER_DIR/shortlink_packer.cc $POD_DIR
+    cp -rf $HEADER_DIR/shortlink_packer.h $POD_DIR
 fi
 
 cd $CUR_DIR

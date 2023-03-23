@@ -37,35 +37,19 @@ Pod::Spec.new do |s|
 
   # s.prefix_header_file = false
   s.pod_target_xcconfig = {
-    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES",
-    "OTHER_CPLUSPLUSFLAGS" => "-fmodules -fcxx-modules",
-    "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64",
     "CLANG_WARN_DOCUMENTATION_COMMENTS" => "NO",
     "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES",
-    "VALID_ARCHS" => "arm64",
-    "OTHER_LDFLAGS" => [
-      "-w",
-      "-lc++",
-      "-lObjC",
-      "-all_load",
-    ],
   }
 
   s.user_target_xcconfig = {
-    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES",
-    "OTHER_CPLUSPLUSFLAGS" => "-fmodules -fcxx-modules",
-    "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64",
     "OTHER_LDFLAGS" => [
       "-w",
-      "-lc++",
-      "-lObjC",
-      "-all_load",
     ],
   }
 
   s.preserve_paths = [
     "Mars/Frameworks",
-    # "script/build.sh",
+    "script/build.sh",
     "script/downloadlib.sh",
   ]
 
@@ -82,14 +66,16 @@ Pod::Spec.new do |s|
       "Mars/Frameworks/*.{h,cc}",
       "Mars/Classes/Xlog/*.{h,cc,m,mm}",
       "Mars/Classes/Core/**/*.{h,cc,m,mm}",
+      "Mars/Frameworks/mars.framework/**/*.h",
     ]
 
     core.public_header_files = [
       "Mars/Classes/**/*.h",
     ]
 
-    core.private_header_files = [
+    core.project_header_files = [
       "Mars/Frameworks/*.h",
+      "Mars/Frameworks/mars.framework/**/*.h",
     ]
 
     core.vendored_frameworks = [
@@ -106,7 +92,12 @@ Pod::Spec.new do |s|
 
   s.subspec "Xlog" do |ss|
     ss.source_files = [
-      "Mars/Classes/Xlog/**/*.{h,cc,m,mm}",
+      "Mars/Classes/Xlog/*.{h,cc,m,mm}",
+      "Mars/Frameworks/Xlog/mars.framework/**/*.h",
+    ]
+
+    ss.project_header_files = [
+      "Mars/Frameworks/Xlog/mars.framework/**/*.h",
     ]
 
     ss.vendored_frameworks = [
@@ -116,8 +107,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Xlog.Swift" do |ss|
     ss.source_files = [
-      "Mars/Classes/Bridge/appender-swift-bridge.h",
-      "Mars/Classes/Bridge/appender-swift-bridge.mm",
+      "Mars/Classes/Bridge/XloggerManager.{h, mm}",
     ]
     ss.dependency "Mars-iOS/Xlog"
   end

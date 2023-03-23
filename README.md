@@ -11,6 +11,14 @@
 
 ## Requirements
 
+You need to use the [wget](https://www.gnu.org/software/wget/?spm=a2c6h.12873639.article-detail.137.33c229e1tbzpdu) command line tool to do the download
+
+#### Install using brew
+
+```ruby
+brew install wget
+```
+
 ## Installation
 
 Mars-iOS is available through [CocoaPods](https://cocoapods.org). To install

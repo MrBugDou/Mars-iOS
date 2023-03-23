@@ -18,14 +18,29 @@
 //  Copyright © 2016年 caoshaokun. All rights reserved.
 //
 
-#if defined(__cplusplus)
-
 #import <Foundation/Foundation.h>
+
+#ifdef __cplusplus
 #import <mars/xlog/xloggerbase.h>
+#else
+
+typedef enum {
+    kLevelAll = 0,
+    kLevelVerbose = 0,
+    kLevelDebug,    // Detailed information on the flow through the system.
+    kLevelInfo,     // Interesting runtime events (startup/shutdown), should be conservative and keep to a minimum.
+    kLevelWarn,     // Other runtime situations that are undesirable or unexpected, but not necessarily "wrong".
+    kLevelError,    // Other runtime errors or unexpected conditions.
+    kLevelFatal,    // Severe errors that cause premature termination.
+    kLevelNone,     // Special level used to disable all log messages.
+} TLogLevel;
+
+#endif
 
 @interface LogHelper : NSObject
 
 + (void)logWithLevel:(TLogLevel)logLevel moduleName:(const char*)moduleName fileName:(const char*)fileName lineNumber:(int)lineNumber funcName:(const char*)funcName message:(NSString *)message;
+
 + (void)logWithLevel:(TLogLevel)logLevel moduleName:(const char*)moduleName fileName:(const char*)fileName lineNumber:(int)lineNumber funcName:(const char*)funcName format:(NSString *)format, ...;
 
 + (BOOL)shouldLog:(TLogLevel)level;
@@ -39,5 +54,3 @@ do { \
         [LogHelper logWithLevel:level moduleName:module fileName:file lineNumber:line funcName:func message:aMessage]; \
     } \
 } while(0)
-
-#endif

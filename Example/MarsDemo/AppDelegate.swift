@@ -41,12 +41,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return appearance
             }()
         }
-
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).map(\.path)
+        let logPath: String = "\(paths.first ?? "")/Xlogs/"
+        if !FileManager.default.fileExists(atPath: logPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: logPath, withIntermediateDirectories: false)
+            } catch {
+                
+            }
+        }
+        XloggerManager.setup(with: .debug, releaseLevel: .info, path: logPath, prefix: "Dou")
         window?.backgroundColor = .white
         let rootVc = ViewController()
         let naviVc = UINavigationController(rootViewController: rootVc)
         window?.rootViewController = naviVc
         window?.makeKeyAndVisible()
+        
+        XloggerManager.log(.debug, tag: "AppDelegate", content: "application")
+        
     }
 
     func application(_: UIApplication, open _: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -54,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_: UIApplication) {
-        // JinkeyMarsBridge.deinitXlogger()
+        XloggerManager.deinit()
     }
 }
 
