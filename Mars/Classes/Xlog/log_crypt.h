@@ -18,6 +18,8 @@
 //  Copyright © 2016年 Tencent. All rights reserved.
 //
 
+#if defined(__cplusplus)
+
 #ifndef LOG_CRYPT_H_
 #define LOG_CRYPT_H_
 
@@ -61,6 +63,6 @@ private:
 
 };
 
-
-
 #endif /* LOG_CRYPT_H_ */
+
+#endif 

@@ -27,7 +27,7 @@ StnCallBack* StnCallBack::instance_ = NULL;
         
 StnCallBack* StnCallBack::Instance() {
     if(instance_ == NULL) {
-        instance_ = new StnCallBack();
+//        instance_ = StnCallBack();
     }
     
     return instance_;

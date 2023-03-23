@@ -21,12 +21,12 @@ OUT_DIR=$MARS_SOURCE_DIR/mars/cmake_build/iOS/iOS.out
 
 POD_DIR=$CUR_DIR/Mars
 
-mkdir -p $POD_DIR/Frameworks/xlog
+mkdir -p $POD_DIR/Frameworks/Xlog
 
-if [[ ! -d "$POD_DIR/Frameworks/xlog/mars.framework" ]]; then
+if [[ ! -d "$POD_DIR/Frameworks/Xlog/mars.framework" ]]; then
     echo "编译 Mars Xlog ...."
     python -c 'import build_ios; print build_ios.build_ios_xlog()'
-    cp -rf $OUT_DIR/cmake_build/iOS/iOS.out/mars.framework $POD_DIR/Frameworks/xlog
+    cp -rf $OUT_DIR/mars.framework $POD_DIR/Frameworks/Xlog
 fi
 
 if [[ ! -d "$POD_DIR/Frameworks/mars.framework" ]]; then
@@ -34,10 +34,10 @@ if [[ ! -d "$POD_DIR/Frameworks/mars.framework" ]]; then
     python -c 'import build_ios; print build_ios.build_ios()'
     cp -rf $OUT_DIR/mars.framework $POD_DIR/Frameworks
     HEADER_DIR=$MARS_SOURCE_DIR/mars/libraries/mars_android_sdk/jni
-    cp -rf $HEADER_DIR/longlink_packer.cc.rewriteme $POD_DIR/Frameworks/longlink_packer.cc
+    cp -rf $HEADER_DIR/longlink_packer.cc $POD_DIR/Frameworks
     cp -rf $HEADER_DIR/longlink_packer.h $POD_DIR/Frameworks
     cp -rf $HEADER_DIR/stnproto_logic.h $POD_DIR/Frameworks
-    cp -rf $HEADER_DIR/shortlink_packer.cc.rewriteme $POD_DIR/Frameworks/shortlink_packer.cc
+    cp -rf $HEADER_DIR/shortlink_packer.cc $POD_DIR/Frameworks
     cp -rf $HEADER_DIR/shortlink_packer.h $POD_DIR/Frameworks
 fi
 

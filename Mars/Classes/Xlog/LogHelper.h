@@ -18,8 +18,9 @@
 //  Copyright © 2016年 caoshaokun. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#if defined(__cplusplus)
 
+#import <Foundation/Foundation.h>
 #import <mars/xlog/xloggerbase.h>
 
 @interface LogHelper : NSObject
@@ -38,3 +39,5 @@ do { \
         [LogHelper logWithLevel:level moduleName:module fileName:file lineNumber:line funcName:func message:aMessage]; \
     } \
 } while(0)
+
+#endif

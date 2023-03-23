@@ -18,6 +18,8 @@
 //  Copyright © 2016年 tencent. All rights reserved.
 //
 
+#if defined(__cplusplus)
+
 #ifndef appcomm_callback_h
 #define appcomm_callback_h
 
@@ -56,3 +58,5 @@ private:
 }}
 
 #endif /* appcomm_callback_h */
+
+#endif

@@ -18,6 +18,8 @@
 //  Copyright © 2016年 tencent. All rights reserved.
 //
 
+#if defined(__cplusplus)
+
 #ifndef STNCALLBACK_h
 #define STNCALLBACK_h
 
@@ -74,3 +76,5 @@ private:
 }
 
 #endif /* STNCALLBACK_h */
+
+#endif

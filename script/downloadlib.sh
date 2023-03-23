@@ -15,7 +15,7 @@ unzip -o $ZIP_FILE -d $DOWNLOAD_DIR
 
 POD_DIR=$CUR_DIR/Mars
 
-mkdir -p $POD_DIR/Frameworks/xlog
+mkdir -p $POD_DIR/Frameworks/Xlog
 
 # full
 cp -rf $LIB_UNZIP_DIR/mars.framework $POD_DIR/Frameworks
@@ -25,4 +25,4 @@ cp -rf $LIB_UNZIP_DIR/stnproto_logic.h $POD_DIR/Frameworks
 cp -rf $LIB_UNZIP_DIR/shortlink_packer.cc $POD_DIR/Frameworks
 cp -rf $LIB_UNZIP_DIR/shortlink_packer.h $POD_DIR/Frameworks
 # xlog
-cp -rf $LIB_UNZIP_DIR/xlog/mars.framework $POD_DIR/Frameworks/xlog
+cp -rf $LIB_UNZIP_DIR/Xlog/mars.framework $POD_DIR/Frameworks/Xlog

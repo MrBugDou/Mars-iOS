@@ -73,14 +73,15 @@ Pod::Spec.new do |s|
   #   script/build.sh "master"
   # CMD
 
-  # s.prepare_command = <<-CMD
-  #   script/downloadlib.sh "lib-v1"
-  # CMD
+  s.prepare_command = <<-CMD
+    script/downloadlib.sh "lib-v1"
+  CMD
 
   s.subspec "Core" do |core|
     core.source_files = [
       "Mars/Frameworks/*.{h,cc}",
-      "Mars/Classes/**/*.{h,cc,m,mm}",
+      "Mars/Classes/Xlog/*.{h,cc,m,mm}",
+      "Mars/Classes/Core/**/*.{h,cc,m,mm}",
     ]
 
     core.public_header_files = [
@@ -96,21 +97,28 @@ Pod::Spec.new do |s|
     ]
   end
 
+  s.subspec "Swift" do |ss|
+    ss.source_files = [
+      "Mars/Classes/Bridge/*.{h,m,mm}",
+    ]
+    ss.dependency "Mars-iOS/Core"
+  end
+
   s.subspec "Xlog" do |ss|
     ss.source_files = [
       "Mars/Classes/Xlog/**/*.{h,cc,m,mm}",
     ]
 
-    ss.public_header_files = [
-      "Mars/Classes/Xlog/*.h",
-    ]
-
-    ss.private_header_files = [
-      "Mars/Classes/Xlog/PublicComponentV2/*.h",
-    ]
-
     ss.vendored_frameworks = [
-      "Mars/Frameworks/xlog/mars.framework",
+      "Mars/Frameworks/Xlog/mars.framework",
     ]
+  end
+
+  s.subspec "Xlog.Swift" do |ss|
+    ss.source_files = [
+      "Mars/Classes/Bridge/appender-swift-bridge.h",
+      "Mars/Classes/Bridge/appender-swift-bridge.mm",
+    ]
+    ss.dependency "Mars-iOS/Xlog"
   end
 end

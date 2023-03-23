@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mars_iOS
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -53,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_: UIApplication) {
-        // appender_close()
+        // JinkeyMarsBridge.deinitXlogger()
     }
 }
 
