@@ -16,10 +16,20 @@
 Mars-iOS is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+### Objective-C
+
 ```ruby
 pod 'Mars-iOS' # 完整版
 
 pod 'Mars-iOS/Xlog' # Xlog
+```
+
+### Swift
+
+```ruby
+pod 'Mars-iOS/Swift' # 完整版
+
+pod 'Mars-iOS/Xlog.Swift' # Xlog
 ```
 
 ## Author
