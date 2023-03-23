@@ -1,14 +1,14 @@
 //
-//  MarsDemoUITestsLaunchTests.swift
-//  MarsDemoUITests
+// MarsDemoUITestsLaunchTests.swift
 //
-//  Created by DouDou on 2023/3/22.
+// Copyright (c) 2023 DouDou
+//
+// Created by DouDou on 2023/3/23.
 //
 
 import XCTest
 
 class MarsDemoUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

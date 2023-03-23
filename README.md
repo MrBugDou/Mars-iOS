@@ -9,6 +9,16 @@
 
 * [Mars源码](https://github.com/Tencent/mars)
 
+#### Xlog
+
+* Due to the different needs of each person, the decoding of the *.xlog file needs to find the information by itself
+
+* Provide the official unencrypted decoding method here
+
+```ruby
+python Mars/Classes/Xlog/decode_mars_nocrypt_log_file.py *.xlog
+```
+
 ## Requirements
 
 You need to use the [wget](https://www.gnu.org/software/wget/?spm=a2c6h.12873639.article-detail.137.33c229e1tbzpdu) command line tool to do the download

@@ -2,18 +2,15 @@ PODS:
   - Mars-iOS/Core (0.0.1)
   - Mars-iOS/Swift (0.0.1):
     - Mars-iOS/Core
-  - SwiftFormat/CLI (0.50.1)
-  - SwiftLint (0.50.3)
+  - SwiftFormat/CLI (0.51.2)
 
 DEPENDENCIES:
   - Mars-iOS/Swift (from `../`)
   - SwiftFormat/CLI
-  - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SwiftFormat
-    - SwiftLint
 
 EXTERNAL SOURCES:
   Mars-iOS:
@@ -21,9 +18,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Mars-iOS: f35fa7afc2357fac3de84306e13b2aef078c25f6
-  SwiftFormat: e73212c71908404e333da34e303772b9e516ac9b
-  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  SwiftFormat: 8904869cd98b67b351c3ab5dea605d00db320e14
 
-PODFILE CHECKSUM: 3a845d4ad4a38e22a6f6b4607184a37f213ef698
+PODFILE CHECKSUM: bba9dff38d861ee55fa7e9927cbde0aff1d18382
 
 COCOAPODS: 1.12.0

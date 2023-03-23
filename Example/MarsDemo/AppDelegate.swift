@@ -1,12 +1,13 @@
 //
-//  AppDelegate.swift
-//  MarsDemo
+// AppDelegate.swift
 //
-//  Created by DouDou on 2023/3/22.
+// Copyright (c) 2023 DouDou
+//
+// Created by DouDou on 2023/3/23.
 //
 
-import UIKit
 import Mars_iOS
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,13 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }()
         }
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).map(\.path)
-        let logPath: String = "\(paths.first ?? "")/Xlogs/"
+        let logPath = "\(paths.first ?? "")/Xlogs/"
         if !FileManager.default.fileExists(atPath: logPath) {
             do {
                 try FileManager.default.createDirectory(atPath: logPath, withIntermediateDirectories: false)
-            } catch {
-                
-            }
+            } catch {}
         }
         XloggerManager.setup(with: .debug, releaseLevel: .info, path: logPath, prefix: "Dou")
         window?.backgroundColor = .white
@@ -56,9 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let naviVc = UINavigationController(rootViewController: rootVc)
         window?.rootViewController = naviVc
         window?.makeKeyAndVisible()
-        
+
         XloggerManager.log(.debug, tag: "AppDelegate", content: "application")
-        
     }
 
     func application(_: UIApplication, open _: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
